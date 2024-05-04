@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
-import Products from "./Products";
-import About from "./About";
-import TotalPrice from "./TotalPrice";
+import Home from "./Components/Home";
+import Products from "./Components/Products";
+import About from "./Components/About";
 import "./App.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Price } from "./PriceContext";
 
 function App() {
+  const data = useContext(Price);
+  console.log(data);
   return (
     <Router>
       <div>
@@ -28,15 +30,14 @@ function App() {
             </Nav>
           </Container>
         </Navbar>
-
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
+          <Route
+            path="/products"
+            element={<Products price={data.updateBasket} />}
+          />
           <Route path="/about" element={<About />} />
         </Routes>
-        <div style={{ position: "fixed", top: "10px", right: "10px" }}>
-          <TotalPrice />
-        </div>
       </div>
     </Router>
   );
