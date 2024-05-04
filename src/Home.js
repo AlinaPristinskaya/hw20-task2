@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Button } from 'react-bootstrap';
 
 function Home() {
   const [userName, setUserName] = useState('');
@@ -18,21 +19,27 @@ function Home() {
   };
 
   return (
-    <div>
+    <Container>
       {isLoggedIn ? (
         <h1>Welcome {userName}</h1>
       ) : (
-        <input
+
+        <input className='input'
           type="text"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
           placeholder="Enter your name"
         />
       )}
-      <button onClick={handleLoginLogout}>
+      <Button variant="secondary" onClick={handleLoginLogout}>
         {isLoggedIn ? 'Logout' : 'Login'}
-      </button>
-    </div>
+      </Button>
+      
+
+       
+      
+     
+      </Container>
   );
 }
 

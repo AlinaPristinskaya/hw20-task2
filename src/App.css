@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+input {
+  color: currentColor;
+  text-decoration: none;
+  height: 38px;
+}
+

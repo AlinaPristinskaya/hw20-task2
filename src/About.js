@@ -1,44 +1,20 @@
 import React from 'react';
-import { Figure } from 'react-bootstrap';
-
+import { Container, Figure } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
+import about1 from './images/about1.webp';
+import about2 from './images/about2.webp';
 function About() {
-  return (
-    <div>
-      <Figure>
-        <Figure.Image
-          width={171}
-          height={180}
-          alt="171x180"
-          src="./images/logo.jpeg"
-        />
-        <Figure.Caption>
-        Beautiful hostess online store - curtains and rugs in the bathroom, tablecloths, mops and much more
-        </Figure.Caption>
-      </Figure>
-      <Figure>
-        <Figure.Image
-          width={171}
-          height={180}
-          alt="171x180"
-          src="path/to/image1.jpg"
-        />
-        <Figure.Caption>
-          First Store Image.
-        </Figure.Caption>
-      </Figure>
-      <Figure>
-        <Figure.Image
-          width={171}
-          height={180}
-          alt="171x180"
-          src="path/to/image2.jpg"
-        />
-        <Figure.Caption>
-          Second Store Image.
-        </Figure.Caption>
-      </Figure>
+ 
+  return (<div>
+    <Image src={about2} fluid />
+    <Container>
+
+
+<Image src={about1} fluid />
+  
       <p>Contact Us at: contact@store.com</p>
-    </div>
+      </Container>
+      </div>
   );
 }
 
