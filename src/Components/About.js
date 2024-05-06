@@ -13,8 +13,9 @@ function About() {
       <div style={{ position: "fixed", top: "10px", right: "10px" }}>
         <TotalPrice price={data.basket} />
       </div>
-      <Image src={banner} fluid />
+      {/* The banner image has been moved to a container to ensure consistency */}
       <Container>
+      <Image src={banner} fluid />
         <h3>Store Description</h3>
         <h4>
           online store - curtains and mats in the bathroom, tablecloths, mops

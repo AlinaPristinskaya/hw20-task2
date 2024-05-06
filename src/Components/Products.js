@@ -124,7 +124,21 @@ function Products() {
     return selectedColors[productId] || "Select Color";
   };
 
-  console.log(selectedColors);
+  //function determines the button color for the "option" 
+  //property based on the color selected by the user
+  const colorVariantFunction = (productId) => {
+    switch (selectedColors[productId]) {
+      case "Red":
+        return "danger";
+      case "Green":
+        return "success";
+      case "Blue":
+        return "primary";
+      default:
+        return "secondary";
+    }
+  };
+
   return (
     <Container>
       <div style={{ position: "fixed", top: "10px", right: "10px" }}>
@@ -146,7 +160,7 @@ function Products() {
                 key={product.id}
                 title={getColorButtonLabel(product.id)}
                 onSelect={(e) => handleColorSelect(product.id, e)}
-                variant="secondary"
+                variant={colorVariantFunction(product.id)}
               >
                 {product.colors.map((color) => (
                   <Dropdown.Item key={color} eventKey={color}>
@@ -155,8 +169,8 @@ function Products() {
                 ))}
               </DropdownButton>
               <Button
-                style={{ marginLeft: "10px" }}
                 variant="secondary"
+                style={{ marginLeft: "10px" }}
                 onClick={() => data.updateBasket(product.price)}
               >
                 Buy
